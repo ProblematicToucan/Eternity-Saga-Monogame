@@ -45,7 +45,7 @@ The project follows a structured organization to maintain code readability and s
 │   ├── Systems
 │   └── Utility
 ├── .gitignore
-├── EternitySaga.sln
+├── EternitySaga.csproj
 ├── LICENSE
 └── README.md
 ```
