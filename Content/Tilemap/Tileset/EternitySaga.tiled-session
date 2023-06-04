@@ -1,0 +1,114 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map/Everglade.tmx",
+    "console.history": [
+        "clear",
+        "help"
+    ],
+    "expandedProjectPaths": [
+        "Map",
+        "TiledMap Editor",
+        "Tileset",
+        "."
+    ],
+    "fileStates": {
+        "Map/Everglade.tmx": {
+            "scale": 1.0732,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1605.0130450987701,
+                "y": 1595.229221021245
+            }
+        },
+        "TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "TiledMap Editor/Ancient Ruins-wall-8-rule.tmx": {
+            "scale": 0.3437152777777778,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 717.1633498333165,
+                "y": 640.0646529952521
+            }
+        },
+        "TiledMap Editor/Terrain - Ancient Ruins.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "TiledMap Editor/TiledMap Editor Example Demo- Ancient Ruins.tmx": {
+            "scale": 0.773359375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.03232649762606,
+                "y": 319.38579654510556
+            }
+        },
+        "TiledMap Editor/Tileset-Animated Terrains-8 frames- transparency.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1.6154
+        },
+        "TiledMap Editor/Tileset-Animated Terrains-8 frames--.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1.2732
+        },
+        "Tileset/Ancient Ruins-Tileset-wall-8.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tileset/TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tileset/TiledMap Editor/Ancient Ruins-wall-8-rule.tmx": {
+            "scale": 0.3437152777777778,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 720.0727346196586,
+                "y": 640.0646529952521
+            }
+        },
+        "Tileset/TiledMap Editor/Terrain - Ancient Ruins.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tileset/TiledMap Editor/TiledMap Editor Example Demo- Ancient Ruins.tmx": {
+            "scale": 0.773359375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 192.01939589857562,
+                "y": 320.6788564501465
+            }
+        },
+        "Tileset/TiledMap Editor/Tileset-Animated Terrains-8 frames--.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "/home/gamal/Code/dotNet/EternitySaga/Content/Tilemap/Tileset/Tilesets",
+    "map.height": 100,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 100,
+    "openFiles": [
+        "Map/Everglade.tmx"
+    ],
+    "project": "EternitySaga.tiled-project",
+    "recentFiles": [
+        "Map/Everglade.tmx",
+        "TiledMap Editor/Tileset-Animated Terrains-8 frames--.tsx",
+        "TiledMap Editor/Tileset-Animated Terrains-8 frames- transparency.tsx",
+        "TiledMap Editor/TiledMap Editor Example Demo- Ancient Ruins.tmx",
+        "TiledMap Editor/Terrain - Ancient Ruins.tsx",
+        "TiledMap Editor/Ancient Ruins-wall-8-rule.tmx",
+        "TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx",
+        "Tileset/TiledMap Editor/Tileset-Animated Terrains-8 frames--.tsx",
+        "Tileset/TiledMap Editor/TiledMap Editor Example Demo- Ancient Ruins.tmx",
+        "Tileset/TiledMap Editor/Terrain - Ancient Ruins.tsx",
+        "Tileset/TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx",
+        "Tileset/TiledMap Editor/Ancient Ruins-wall-8-rule.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}

@@ -29,4 +29,10 @@
     <Message Text="Restoring dotnet tools" Importance="High" />
     <Exec Command="dotnet tool restore" />
   </Target>
+  <!-- Include the Content directory (except for .fx files, since we use .fxb at runtime) -->
+  <ItemGroup>
+      <Content Include="Content\Tilemap\**\*" Exclude="**\*.tiled-project; **\*.tiled-session; **\*.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+  </ItemGroup>
 </Project>

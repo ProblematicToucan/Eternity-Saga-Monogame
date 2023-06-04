@@ -50,7 +50,7 @@ The project follows a structured organization to maintain code readability and s
 └── README.md
 ```
 
-- **Content**: Contains the game's assets, such as fonts, images, and sounds.
+- **Content**: Contains the game's assets, such as tilemap, fonts, images, and sounds.
 - **Source**: Contains the source code of the game, organized into various folders:
   - **Components**: Contains reusable components used in entity systems.
   - **Entities**: Contains the game entities, each representing an interactive object in the game.

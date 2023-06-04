@@ -1,4 +1,6 @@
+using EternitySaga.Components;
 using EternitySaga.Systems;
+using Nez;
 
 namespace EternitySaga.World;
 
@@ -9,8 +11,13 @@ public class Everglade : BaseScene
         base.Initialize();
 
         SetDesignResolution(512, 256, SceneResolutionPolicy.ShowAllPixelPerfect);
-        Nez.Screen.SetSize(512 * 2, 256 * 2);
-        var player = CreateEntity("player", new(512 / 2, 256 / 2));
-        player.AddComponent(new Components.Red());
+        Screen.SetSize(512 * 2, 256 * 2);
+        var map = Content.LoadTiledMap("Content/Tilemap/Tileset/Map/Everglade.tmx");
+        var tiled = CreateEntity("tiled-map");
+        var player = CreateEntity("player", new (map.Width * map.TileWidth / 2, map.Height*map.TileHeight / 2));
+
+        Camera.Position = new (map.Width * map.TileWidth / 2, map.Height*map.TileHeight / 2);
+        tiled.AddComponent(new TiledMapRenderer(map));
+        player.AddComponent(new Red());
     }
 }
