@@ -1,5 +1,5 @@
 {
-    "automappingRulesFile": "",
+    "automappingRulesFile": "TiledMap Editor/rules.txt",
     "commands": [
     ],
     "compatibilityVersion": 1100,

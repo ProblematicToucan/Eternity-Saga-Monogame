@@ -9,18 +9,30 @@
         "help"
     ],
     "expandedProjectPaths": [
-        "Map",
         "TiledMap Editor",
-        "Tileset",
-        "."
+        ".",
+        "Map",
+        "Tileset"
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
-        "Map/Everglade.tmx": {
-            "scale": 1.0732,
+        "/home/gamal/Code/dotNet/Nez-Samples/Nez.Samples/Content/DestructableMap/destructable-map.tmx": {
+            "scale": 0.773359375,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1605.0130450987701,
-                "y": 1595.229221021245
+                "x": 320.03232649762606,
+                "y": 179.73532680068695
+            }
+        },
+        "/home/gamal/Code/dotNet/Nez-Samples/Nez.Samples/Content/DestructableMap/destructable-map.tmx#desert-palace-tiles2x": {
+            "scaleInDock": 1
+        },
+        "Map/Everglade.tmx": {
+            "scale": 1,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 787.5,
+                "y": 819
             }
         },
         "TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx": {
@@ -31,7 +43,7 @@
             "scale": 0.3437152777777778,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 717.1633498333165,
+                "x": 711.3445802606324,
                 "y": 640.0646529952521
             }
         },
@@ -40,11 +52,11 @@
             "scaleInEditor": 1
         },
         "TiledMap Editor/TiledMap Editor Example Demo- Ancient Ruins.tmx": {
-            "scale": 0.773359375,
+            "scale": 0.75,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 320.03232649762606,
-                "y": 319.38579654510556
+                "x": 320.66666666666663,
+                "y": 320
             }
         },
         "TiledMap Editor/Tileset-Animated Terrains-8 frames- transparency.tsx": {
@@ -93,22 +105,17 @@
     "map.lastUsedFormat": "tmx",
     "map.width": 100,
     "openFiles": [
+        "/home/gamal/Code/dotNet/Nez-Samples/Nez.Samples/Content/DestructableMap/destructable-map.tmx",
+        "TiledMap Editor/Ancient Ruins-wall-8-rule.tmx",
         "Map/Everglade.tmx"
     ],
     "project": "EternitySaga.tiled-project",
     "recentFiles": [
-        "Map/Everglade.tmx",
-        "TiledMap Editor/Tileset-Animated Terrains-8 frames--.tsx",
-        "TiledMap Editor/Tileset-Animated Terrains-8 frames- transparency.tsx",
-        "TiledMap Editor/TiledMap Editor Example Demo- Ancient Ruins.tmx",
-        "TiledMap Editor/Terrain - Ancient Ruins.tsx",
+        "/home/gamal/Code/dotNet/Nez-Samples/Nez.Samples/Content/DestructableMap/destructable-map.tmx",
         "TiledMap Editor/Ancient Ruins-wall-8-rule.tmx",
-        "TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx",
-        "Tileset/TiledMap Editor/Tileset-Animated Terrains-8 frames--.tsx",
-        "Tileset/TiledMap Editor/TiledMap Editor Example Demo- Ancient Ruins.tmx",
-        "Tileset/TiledMap Editor/Terrain - Ancient Ruins.tsx",
-        "Tileset/TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx",
-        "Tileset/TiledMap Editor/Ancient Ruins-wall-8-rule.tmx"
+        "Map/Everglade.tmx",
+        "TiledMap Editor/Tileset-Animated Terrains-8 frames- transparency.tsx",
+        "TiledMap Editor/TiledMap Editor Example Demo- Ancient Ruins.tmx"
     ],
     "tileset.lastUsedFormat": "tsx"
 }

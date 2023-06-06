@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="left-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
  <tileset firstgid="1" source="../TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx"/>
  <tileset firstgid="71" source="../TiledMap Editor/Terrain - Ancient Ruins.tsx"/>
  <tileset firstgid="2162" source="../TiledMap Editor/Tileset-Animated Terrains-8 frames--.tsx"/>
- <layer id="1" name="Ground" width="100" height="100">
+ <layer id="1" name="ground" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJztwwEJAAAMBKGL+f2TDJZDwVVTVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/AaQNbkQ=
+   eJztwwEJAAAMBKGL+f2TLMdAwVVTVVVVVVVVVVXV5w9g5VuO
   </data>
  </layer>
- <layer id="2" name="Grass" width="100" height="100">
+ <layer id="2" name="Grass" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt2G1KQkEUBuC5GzBaSlRLsUhrKUYtJcSlFLoVqz00h5nBKfBXXAV9HjjcD0Quc3xnxpsSAAAAAAAAAAAAAAAAAAAAAKdmkWue67WePx73cc7eW65lrlWu91xfuWap9EhvDi/6sU6lDy0rz/XeJsnMoW1TGfcQvbkdSi+eUpnD4l5kZ1GvGU8b47+5iF48pJKZ1q9tvWY8bawjA/c5F5NcL6n0JY7ztFvrZ0k+xtTGN44x/q0fV7Uucn2n33nZ7P86/imy0cb5I5U91mXtwbLWdZeX1ZGe85zE/rbNV5GJu6H0ZDqUXkQ2PmtZO8bXr+PRi5aLmzpfRSbavGbfO76Ys2Kuajnoz6NiPmtre9tvMZ747cc4x7jPu/OWh7a2rLvPyMh42vuRWD+mw+6dSb+f6vfEk8G6fgjRg37N7v+z7/sMAAAAAAAAAAAAAAAAAAAAAMAp+wFL8lpU
+   eJztlusJwkAQhPcaUCxF0FKMaLSUSCxFJKUo2oqPHtxhb3ERBPFPTpwPhlxCkNmb3TMihBBCCCGEEEL6pFHVqm1er/q18zU71V7VqQ6qm2opVtsv1YQ6TmL+PZtNfnaW38noIuYXoKZpshrWYr2GZ8iqyfcl4t5ec0ANC7GMvM5Lvi8R94g9n2sOA1UrVg+utTzPgKWUmYf7whW+vY5xFtaY/5jP+f3P9QaycH9HMc8j9X4X837Nz1uxOrt+bH4EzlnvK2RQJaulFesn1HjNKnU2QJzvKvcRNNH1MFkG3n8ln7/oLfRO7CNfQ+g7n3k/v0oEew1/8FuHte+/z84pvFNiJv4dgvmYpee3STyf4tk8SOXPe5zl+B//7h1CCCGEEEIIIeSfeQAT3Vrq
+  </data>
+ </layer>
+ <layer id="3" name="path" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt08EJwCAQRcG1/3MO2ovpRStxBSEVJIcwA4+Ff98IAAAAAL5ylYiezWycC/zL/u37VLNWng0AAACAdy1N9wkz
   </data>
  </layer>
 </map>
