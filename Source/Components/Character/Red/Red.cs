@@ -18,6 +18,8 @@ public class Red : Component, IUpdatable
     private int _currentWaypoint = 0;
     private Mover _mover;
     private SubpixelVector2 _subpixelV2 = new();
+    [Inspectable, Tooltip("Character movement speed")]
+    private float _moveSpeed;
 
     /// <inheritdoc cref="Red" path="/summary"/>
     public Red() { }
@@ -27,6 +29,7 @@ public class Red : Component, IUpdatable
         var texture = Entity.Scene.Content.LoadTexture("Sprite/Red/Front Movement");
         var sprites = Sprite.SpritesFromAtlas(texture, 64, 64);
         var animator = Entity.AddComponent(new SpriteAnimator());
+        _moveSpeed = 25;
         _pathfinder = Entity.AddComponent(new Utils.Pathfinder());
         _tempPath = new();
         RegisterAnimation(sprites, animator);
@@ -68,9 +71,8 @@ public class Red : Component, IUpdatable
     {
         var nextWayPoint = _path[_currentWaypoint];
         var direction = CalculateDirection(Entity.Position, nextWayPoint);
-        var speed = 25;
         var waypointThreshold = 1f;
-        var movement = direction * speed * Time.DeltaTime;
+        var movement = direction * _moveSpeed * Time.DeltaTime;
 
         _mover.CalculateMovement(ref movement, out var _);
         _subpixelV2.Update(ref movement);

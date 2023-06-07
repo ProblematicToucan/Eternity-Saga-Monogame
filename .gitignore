@@ -457,3 +457,8 @@ $RECYCLE.BIN/
 ## Dotnet tools
 ##
 .config/*
+
+##
+## Tiled
+##
+Content/Tilemap/Tileset/EternitySaga.tiled-session
