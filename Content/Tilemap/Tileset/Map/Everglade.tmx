@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="left-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="left-down" width="50" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="2">
  <tileset firstgid="1" source="../TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx"/>
  <tileset firstgid="71" source="../TiledMap Editor/Terrain - Ancient Ruins.tsx"/>
  <tileset firstgid="2162" source="../TiledMap Editor/Tileset-Animated Terrains-8 frames--.tsx"/>
@@ -18,4 +18,7 @@
    eJzt08EJwCAQRcG1/3MO2ovpRStxBSEVJIcwA4+Ff98IAAAAAL5ylYiezWycC/zL/u37VLNWng0AAACAdy1N9wkz
   </data>
  </layer>
+ <objectgroup id="5" name="object">
+  <object id="1" name="spawn" type="spawn" x="800" y="800" width="32" height="32"/>
+ </objectgroup>
 </map>

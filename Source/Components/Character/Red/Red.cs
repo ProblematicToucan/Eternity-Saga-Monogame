@@ -6,13 +6,17 @@ using Nez.Sprites;
 using Nez.Textures;
 
 namespace EternitySaga.Components;
-/// <summary>EternitySaga Character class base on <see cref="Component"/></summary>
+/// <summary>EternitySaga Character class base on <see langword="Nez.Component"/>.
+///<inheritdoc/>
+///</summary>
 public class Red : Component, IUpdatable
 {
     private Utils.Pathfinder _pathfinder;
     private List<Vector2> _path;
     private List<Vector2> _tempPath;
     private int _currentWaypoint = 0;
+    private Mover _mover;
+    private SubpixelVector2 _subpixelV2 = new();
     public override void OnAddedToEntity()
     {
         base.OnAddedToEntity();
@@ -22,6 +26,7 @@ public class Red : Component, IUpdatable
         _pathfinder = Entity.AddComponent(new Utils.Pathfinder());
         _tempPath = new();
         RegisterAnimation(sprites, animator);
+        _mover = Entity.AddComponent(new Mover());
     }
 
     private static void RegisterAnimation(List<Sprite> sprites, SpriteAnimator animator)
@@ -58,15 +63,28 @@ public class Red : Component, IUpdatable
     private void Move()
     {
         var nextWayPoint = _path[_currentWaypoint];
-        var direction = nextWayPoint - Entity.Position;
+        var direction = Direction(Entity.Position, nextWayPoint);
         var speed = 25;
         var waypointThreshold = 1f;
-
-        direction.Normalize();
-        Entity.Position += direction * speed * Time.DeltaTime;
+        var movement = direction * speed * Time.DeltaTime;
+        // System.Console.WriteLine(nextWayPoint);
+        _mover.CalculateMovement(ref movement, out var _);
+        _subpixelV2.Update(ref movement);
+        _mover.ApplyMovement(movement);
         if (Vector2.Distance(Entity.Position, nextWayPoint) < waypointThreshold)
         {
             _currentWaypoint++;
         }
+    }
+
+    ///<summary>Get direction between point b to point a</summary>
+    /// <param name="start">Departure point.</param>
+    /// <param name="end">Destination point.</param>
+    /// <returns>Normalized Vector2</returns>
+    private static Vector2 Direction(Vector2 start, Vector2 end)
+    {
+        var direction = end - start;
+        return direction.Length() < 0.000001f ?
+            Vector2.Zero : Vector2.Normalize(end - start);
     }
 }

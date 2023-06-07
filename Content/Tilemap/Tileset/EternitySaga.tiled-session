@@ -17,22 +17,28 @@
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "/home/gamal/Code/dotNet/Nez-Samples/Nez.Samples/Content/DestructableMap/destructable-map.tmx": {
-            "scale": 0.773359375,
-            "selectedLayer": 0,
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 3,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 320.03232649762606,
-                "y": 179.73532680068695
+                "x": 69.16666666666666,
+                "y": 175
             }
         },
         "/home/gamal/Code/dotNet/Nez-Samples/Nez.Samples/Content/DestructableMap/destructable-map.tmx#desert-palace-tiles2x": {
             "scaleInDock": 1
         },
         "Map/Everglade.tmx": {
-            "scale": 1,
-            "selectedLayer": 2,
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 4,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 787.5,
-                "y": 819
+                "x": 836.375,
+                "y": 827.75
             }
         },
         "TiledMap Editor/Ancient Ruins-Tileset-wall-8.tsx": {
@@ -43,7 +49,7 @@
             "scale": 0.3437152777777778,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 711.3445802606324,
+                "x": 708.4351954742904,
                 "y": 640.0646529952521
             }
         },
