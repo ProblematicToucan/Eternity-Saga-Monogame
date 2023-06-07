@@ -6,9 +6,10 @@ using Nez.Sprites;
 using Nez.Textures;
 
 namespace EternitySaga.Components;
-/// <summary>EternitySaga Character class base on <see langword="Nez.Component"/>.
-///<inheritdoc/>
-///</summary>
+/// <summary>EternitySaga Character class base on
+/// <see langword="Nez.Component"/>.
+/// <inheritdoc/>
+/// </summary>
 public class Red : Component, IUpdatable
 {
     private Utils.Pathfinder _pathfinder;
@@ -17,6 +18,9 @@ public class Red : Component, IUpdatable
     private int _currentWaypoint = 0;
     private Mover _mover;
     private SubpixelVector2 _subpixelV2 = new();
+
+    /// <inheritdoc cref="Red" path="/summary"/>
+    public Red() { }
     public override void OnAddedToEntity()
     {
         base.OnAddedToEntity();
@@ -63,11 +67,11 @@ public class Red : Component, IUpdatable
     private void Move()
     {
         var nextWayPoint = _path[_currentWaypoint];
-        var direction = Direction(Entity.Position, nextWayPoint);
+        var direction = CalculateDirection(Entity.Position, nextWayPoint);
         var speed = 25;
         var waypointThreshold = 1f;
         var movement = direction * speed * Time.DeltaTime;
-        // System.Console.WriteLine(nextWayPoint);
+
         _mover.CalculateMovement(ref movement, out var _);
         _subpixelV2.Update(ref movement);
         _mover.ApplyMovement(movement);
@@ -77,11 +81,11 @@ public class Red : Component, IUpdatable
         }
     }
 
-    ///<summary>Get direction between point b to point a</summary>
+    ///<summary>Calculate direction from start point to end point</summary>
     /// <param name="start">Departure point.</param>
     /// <param name="end">Destination point.</param>
     /// <returns>Normalized Vector2</returns>
-    private static Vector2 Direction(Vector2 start, Vector2 end)
+    private static Vector2 CalculateDirection(Vector2 start, Vector2 end)
     {
         var direction = end - start;
         return direction.Length() < 0.000001f ?

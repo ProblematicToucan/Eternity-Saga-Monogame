@@ -6,10 +6,11 @@ using Nez.AI.Pathfinding;
 using Nez.Tiled;
 
 namespace EternitySaga.Utils;
-///<summary>
-///Pathfinder utility <see cref="RenderableComponent"/>/<seealso cref="Component"/> using <see cref="AstarGridGraph"/> algorithm.
-///<inheritdoc/>
-///</summary>
+/// <summary>
+/// Pathfinder utility <see cref="RenderableComponent"/> / 
+/// <seealso cref="Component"/> using <see cref="AstarGridGraph"/> algorithm.
+/// <inheritdoc/>
+/// </summary>
 public class Pathfinder : RenderableComponent
 {
     // make sure we arent culled when debug
@@ -21,6 +22,7 @@ public class Pathfinder : RenderableComponent
     private List<Point> _lastAstarSearchPath;
     private Point GetWorldPosition(Vector2 vector2) => _tilemap.WorldToTilePosition(vector2);
 
+    /// <inheritdoc cref="Pathfinder" path="/summary"/>
     public Pathfinder() { }
 
     public override void OnAddedToEntity()
@@ -34,12 +36,12 @@ public class Pathfinder : RenderableComponent
         _lastAstarSearchPath = _astarSearchPath;
     }
 
-    ///<summary>Find path from
-    ///<see cref="Vector2"/>start point to
-    ///<see cref="Vector2"/>end point
-    ///</summary>
-    ///<param name="start">Start point</param>
-    ///<param name="end">End point</param>
+    /// <summary>Find path from
+    /// <see cref="Vector2"/>start point to
+    /// <see cref="Vector2"/>end point
+    /// </summary>
+    /// <param name="start">Start point</param>
+    /// <param name="end">End point</param>
     public List<Vector2> SearchPath(Vector2 start, Vector2 end)
     {
         var startNode = GetWorldPosition(start);
