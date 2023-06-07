@@ -37,7 +37,6 @@ public class Pathfinder : RenderableComponent
         var endNode = GetWorldPosition(end);
         _astarSearchPath = _astarGraph.Search(startNode, endNode);
         if (_astarSearchPath == null) return null;
-        _astarSearchPath.RemoveAt(0);
         _lastAstarSearchPath = _astarSearchPath;
         return ScaledAstarSearchPath(_astarSearchPath);
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Nez;
 using Nez.Sprites;
@@ -10,6 +11,7 @@ public class Red : Component, IUpdatable
 {
     private Utils.Pathfinder _pathfinder;
     private List<Vector2> _path;
+    private List<Vector2> _tempPath;
     private int _currentWaypoint = 0;
     public override void OnAddedToEntity()
     {
@@ -18,14 +20,15 @@ public class Red : Component, IUpdatable
         var sprites = Sprite.SpritesFromAtlas(texture, 64, 64);
         var animator = Entity.AddComponent(new SpriteAnimator());
         _pathfinder = Entity.AddComponent(new Utils.Pathfinder());
+        _tempPath = new();
         RegisterAnimation(sprites, animator);
-        animator.Play("idle");
     }
 
     private static void RegisterAnimation(List<Sprite> sprites, SpriteAnimator animator)
     {
         animator.AddAnimation("idle", 10f, sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5]);
         animator.AddAnimation("walk-front", 10f, sprites[6], sprites[7], sprites[8], sprites[9], sprites[10], sprites[11]);
+        animator.Play("idle");
     }
 
     void IUpdatable.Update()
@@ -35,31 +38,35 @@ public class Red : Component, IUpdatable
             var start = Entity.Position;
             var end = Entity.Scene.Camera.MouseToWorldPoint();
             var newPath = _pathfinder.SearchPath(start, end);
-            if (newPath != null)
+            if (newPath != null && !newPath.SequenceEqual(_tempPath))
             {
-                _currentWaypoint = 0;
-                _path = newPath;
+                UpdatePath(newPath);
             }
         }
-        Move();
+        var pathCount = _path?.Count ?? 0;
+        if (pathCount > 0 && _currentWaypoint < pathCount) Move();
     }
 
-    void Move()
+    private void UpdatePath(List<Vector2> newPath)
     {
-        if (_path != null && _currentWaypoint < _path.Count)
+        if (newPath.Count == 1) return;
+        _currentWaypoint = 0;
+        _path = newPath;
+        _tempPath = newPath;
+    }
+
+    private void Move()
+    {
+        var nextWayPoint = _path[_currentWaypoint];
+        var direction = nextWayPoint - Entity.Position;
+        var speed = 25;
+        var waypointThreshold = 1f;
+
+        direction.Normalize();
+        Entity.Position += direction * speed * Time.DeltaTime;
+        if (Vector2.Distance(Entity.Position, nextWayPoint) < waypointThreshold)
         {
-            var nextWayPoint = _path[_currentWaypoint];
-            var direction = nextWayPoint - Entity.Position;
-            direction.Normalize();
-
-            var speed = 25;
-            Entity.Position += direction * speed * Time.DeltaTime;
-
-            var waypointThreshold = 1f;
-            if (Vector2.Distance(Entity.Position, nextWayPoint) < waypointThreshold)
-            {
-                _currentWaypoint++;
-            }
+            _currentWaypoint++;
         }
     }
 }

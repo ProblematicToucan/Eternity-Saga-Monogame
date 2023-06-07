@@ -74,6 +74,6 @@ This project is licensed under the [MIT License](LICENSE).
 For any inquiries or feedback, you can reach out to the author:
 
 Author: Gamal Abdul Aziz
-Email: [gamal.abdulaziz@example.com](mailto:gamal.aziz1000@gmail.com)
+Email: [gamal.aziz1000@gmail.com](mailto:gamal.aziz1000@gmail.com)
 
 Feel free to contact me for any further assistance or questions related to the project.
