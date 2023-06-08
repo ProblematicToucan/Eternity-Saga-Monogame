@@ -12,35 +12,46 @@ namespace EternitySaga.Components;
 /// </summary>
 public class Red : Component, IUpdatable
 {
+    [Inspectable, Tooltip("Character movement speed")]
+    private float _moveSpeed;
+    private SpriteAnimator _animator;
     private Utils.Pathfinder _pathfinder;
     private List<Vector2> _path;
-    private List<Vector2> _tempPath;
     private int _currentWaypoint = 0;
     private Mover _mover;
     private SubpixelVector2 _subpixelV2 = new();
-    [Inspectable, Tooltip("Character movement speed")]
-    private float _moveSpeed;
+    private Vector2 moveDir = Vector2.Zero;
+    private bool _isMoving;
 
     /// <inheritdoc cref="Red" path="/summary"/>
     public Red() { }
+
     public override void OnAddedToEntity()
     {
         base.OnAddedToEntity();
-        var texture = Entity.Scene.Content.LoadTexture("Sprite/Red/Front Movement");
-        var sprites = Sprite.SpritesFromAtlas(texture, 64, 64);
-        var animator = Entity.AddComponent(new SpriteAnimator());
+        _animator = Entity.AddComponent(new SpriteAnimator());
+        RegisterAnimation();
         _moveSpeed = 25;
         _pathfinder = Entity.AddComponent(new Utils.Pathfinder());
-        _tempPath = new();
-        RegisterAnimation(sprites, animator);
+        _path = new();
         _mover = Entity.AddComponent(new Mover());
     }
 
-    private static void RegisterAnimation(List<Sprite> sprites, SpriteAnimator animator)
+    private void RegisterAnimation()
     {
-        animator.AddAnimation("idle", 10f, sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5]);
-        animator.AddAnimation("walk-front", 10f, sprites[6], sprites[7], sprites[8], sprites[9], sprites[10], sprites[11]);
-        animator.Play("idle");
+        var textureFront = Entity.Scene.Content.LoadTexture("Sprite/Red/Front Movement");
+        var spritesFront = Sprite.SpritesFromAtlas(textureFront, 64, 64);
+        var textureBack = Entity.Scene.Content.LoadTexture("Sprite/Red/Back Movement");
+        var spritesBack = Sprite.SpritesFromAtlas(textureBack, 64, 64);
+        var textureSide = Entity.Scene.Content.LoadTexture("Sprite/Red/Side Movement");
+        var spritesSide = Sprite.SpritesFromAtlas(textureSide, 64, 64);
+
+        _animator.AddAnimation("idle-front", 10f, spritesFront[0], spritesFront[1], spritesFront[2], spritesFront[3], spritesFront[4], spritesFront[5]);
+        _animator.AddAnimation("idle-back", 10f, spritesBack[0], spritesBack[1], spritesBack[2], spritesBack[3], spritesBack[4], spritesBack[5]);
+        _animator.AddAnimation("idle-side", 10f, spritesSide[0], spritesSide[1], spritesSide[2], spritesSide[3], spritesSide[4], spritesSide[5]);
+        _animator.AddAnimation("walk-front", 10f, spritesFront[6], spritesFront[7], spritesFront[8], spritesFront[9], spritesFront[10], spritesFront[11]);
+        _animator.AddAnimation("walk-back", 10f, spritesBack[6], spritesBack[7], spritesBack[8], spritesBack[9], spritesBack[10], spritesBack[11]);
+        _animator.AddAnimation("walk-side", 10f, spritesSide[6], spritesSide[7], spritesSide[8], spritesSide[9], spritesSide[10], spritesSide[11]);
     }
 
     void IUpdatable.Update()
@@ -50,13 +61,45 @@ public class Red : Component, IUpdatable
             var start = Entity.Position;
             var end = Entity.Scene.Camera.MouseToWorldPoint();
             var newPath = _pathfinder.SearchPath(start, end);
-            if (newPath != null && !newPath.SequenceEqual(_tempPath))
+            if (newPath != null && !newPath.SequenceEqual(_path))
             {
                 UpdatePath(newPath);
             }
         }
         var pathCount = _path?.Count ?? 0;
-        if (pathCount > 0 && _currentWaypoint < pathCount) Move();
+        _isMoving = pathCount > 0 && _currentWaypoint < pathCount;
+        if (_isMoving)
+        {
+            Move();
+
+            var animationName = "idle-front";
+            if (moveDir.X != 0)
+            {
+                animationName = "walk-side";
+                _animator.FlipX = moveDir.X < 0;
+            }
+            else if (moveDir.Y != 0)
+            {
+                animationName = moveDir.Y < 0 ? "walk-back" : "walk-front";
+            }
+
+            SetAnimation(animationName);
+        }
+        else
+        {
+            var animationName = "idle-front";
+            if (moveDir.X != 0)
+            {
+                animationName = "idle-side";
+                _animator.FlipX = moveDir.X < 0;
+            }
+            else if (moveDir.Y != 0)
+            {
+                animationName = moveDir.Y < 0 ? "idle-back" : "idle-front";
+            }
+
+            SetAnimation(animationName);
+        }
     }
 
     private void UpdatePath(List<Vector2> newPath)
@@ -64,15 +107,14 @@ public class Red : Component, IUpdatable
         if (newPath.Count == 1) return;
         _currentWaypoint = 0;
         _path = newPath;
-        _tempPath = newPath;
     }
 
     private void Move()
     {
         var nextWayPoint = _path[_currentWaypoint];
-        var direction = CalculateDirection(Entity.Position, nextWayPoint);
+        moveDir = CalculateDirection(Entity.Position, nextWayPoint);
         var waypointThreshold = 1f;
-        var movement = direction * _moveSpeed * Time.DeltaTime;
+        var movement = moveDir * _moveSpeed * Time.DeltaTime;
 
         _mover.CalculateMovement(ref movement, out var _);
         _subpixelV2.Update(ref movement);
@@ -92,5 +134,13 @@ public class Red : Component, IUpdatable
         var direction = end - start;
         return direction.Length() < 0.000001f ?
             Vector2.Zero : Vector2.Normalize(end - start);
+    }
+
+    private void SetAnimation(string animationName)
+    {
+        if (animationName != _animator.CurrentAnimationName)
+        {
+            _animator.Play(animationName);
+        }
     }
 }
