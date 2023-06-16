@@ -18,7 +18,7 @@ public class Everglade : BaseScene
         var tiled = CreateEntity("tiled-map");
         var objectGroup = map.GetObjectGroup("object");
         var spawn = objectGroup.Objects["spawn"];
-        var player = CreateEntity("player", new(spawn.X + 16, spawn.Y + 16));
+        var player = CreateEntity("player", new(spawn.X + map.TileWidth * 0.5f, spawn.Y + map.TileHeight * 0.5f));
 
         Camera.Position = new(map.Width * map.TileWidth / 2, map.Height * map.TileHeight / 2);
         tiled.AddComponent(new TiledMapRenderer(map));
