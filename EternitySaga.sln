@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.001.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EternitySaga", "EternitySaga.csproj", "{66D25AE0-E5D2-4E78-A7C3-D78D1744C400}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nez.MG38", "..\Nez\Nez.Portable\Nez.MG38.csproj", "{5313A248-93C6-456A-A0B3-775CF4AF98A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{66D25AE0-E5D2-4E78-A7C3-D78D1744C400}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D25AE0-E5D2-4E78-A7C3-D78D1744C400}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D25AE0-E5D2-4E78-A7C3-D78D1744C400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5313A248-93C6-456A-A0B3-775CF4AF98A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5313A248-93C6-456A-A0B3-775CF4AF98A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5313A248-93C6-456A-A0B3-775CF4AF98A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5313A248-93C6-456A-A0B3-775CF4AF98A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
