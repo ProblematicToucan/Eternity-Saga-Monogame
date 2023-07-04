@@ -10,6 +10,6 @@ public class GameMain : Core
         base.Initialize();
 
         // TODO: Add your initialization logic here
-        Scene = new Everglade();
+        Scene = new Empty();
     }
 }
