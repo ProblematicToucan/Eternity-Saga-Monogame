@@ -18,17 +18,15 @@ Eternity Saga is a 2D RPG game developed using the Monogame framework and the Ne
 ## Getting Started
 
 ### Prerequisites
-To run this project, you need to have the following software installed on your system:
+To run this project, you need to have the following framework or repository cloned on your local machine:
 
-- [Monogame](https://www.monogame.net/)
-- [Nez](https://github.com/prime31/Nez)
+- Framework: [Monogame](https://www.monogame.net/)
+- Library: [Nez](https://github.com/prime31/Nez)
 
 ### Installation
 1. Clone this repository to your local machine or download the ZIP file.
 2. Open the project in your preferred IDE.
-3. Install the required NuGet packages:
-   - Monogame
-   - Nez
+3. Clone **Nez** repository and fix/link **Nez** project with this **EternitySaga** project.
 4. Build the solution to ensure all dependencies are resolved.
 
 ## Project Structure
@@ -38,7 +36,8 @@ The project follows a structured organization to maintain code readability and s
 ├── Content
 │   ├── Fonts
 │   ├── Images
-│   └── Sounds
+│   ├── Sounds
+│   └── Tilemap
 ├── Source
 │   ├── Components
 │   ├── Entities
@@ -46,7 +45,11 @@ The project follows a structured organization to maintain code readability and s
 │   └── Utility
 ├── .gitignore
 ├── EternitySaga.csproj
+├── EternitySaga.sln
+├── Icon.bmp
+├── Icon.ico
 ├── LICENSE
+├── Program.cs
 └── README.md
 ```
 
